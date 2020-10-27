@@ -6,6 +6,7 @@ app_name = 'adoptantes'
 
 urlpatterns = [
 	path('registro/', views.pag_registro,name="registro"),
+	path('login/', views.login,name="login")
 
 
 ]

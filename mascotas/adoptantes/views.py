@@ -6,4 +6,8 @@ def pag_registro(request):
 	return render(request,'adoptantes/registro.html',context)
 
 
+def login(request):
+	context = {}
+	return render(request,'adoptantes/login.html',context)
+
 # Create your views here.
