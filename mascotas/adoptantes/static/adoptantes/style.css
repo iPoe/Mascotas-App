@@ -3,9 +3,10 @@ html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background: white url("images/jack-russel-looping.gif") no-repeat;
-	background-size: 85% 50%;
-	background-position: 490px 150px;
+	background-image: url("images/jack-russel-looping.gif"), url("images/dog2.gif");
+	background-repeat: no-repeat, no-repeat;
+	background-size: 85% 50%, 65% 40%;
+	background-position: 490px 150px, -170px 390px;
 }
 .user_card {
 	width: 350px;
