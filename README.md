@@ -12,7 +12,8 @@
 * [Contacto](#contact)
 
 ## Screenshots
-![Example screenshot](./img/s1.png)
+![reg-fund](./img/s1.png)
+![reg-adop](./img/s2.png)
 
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
