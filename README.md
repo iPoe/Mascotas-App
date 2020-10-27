@@ -11,4 +11,5 @@
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 
-## General info
+## Screenshots
+![Example screenshot](./img/Screenshot from 2020-10-27 17-55-41.png)
