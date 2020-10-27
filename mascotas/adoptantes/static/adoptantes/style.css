@@ -30,7 +30,9 @@ html {
 }
 
 #form-title{
+
 	color: #fff;
+	font-size:25px;
 }
 .login_btn {
 	width: 100%;

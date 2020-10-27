@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from .forms import CreateUserForm
 
-def pag_registro(request):
+def pag_registro_adoptante(request):
 	form = CreateUserForm()
 
 	if request.method == 'POST':
@@ -15,6 +15,10 @@ def pag_registro(request):
 
 	context = {'form': form}
 	return render(request,'adoptantes/registro.html',context)
+
+def pag_registro_fundacion(request):
+	context = {}
+	return render(request,'adoptantes/registro_fundacion.html',context)
 
 
 def login_adoptante(request):
