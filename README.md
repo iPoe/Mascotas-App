@@ -12,4 +12,4 @@
 * [Contact](#contact)
 
 ## Screenshots
-![Example screenshot](./img/Screenshot from 2020-10-27 17-55-41.png)
+![Example screenshot](./img/s1.png)
