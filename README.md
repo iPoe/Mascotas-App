@@ -2,14 +2,35 @@
 > Este repositorio alberga la aplicación hecha en django de una app para mostrar las mascotas de una fundación
 
 ## Table of contents
-* [General info](#general-info)
+* [Información General](#general-info)
 * [Screenshots](#screenshots)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Tecnologias](#technologies)
+* [Instalación](#setup)
+* [Caracteristicas](#features)
+* [Estado](#status)
+* [Inspiración](#inspiration)
+* [Contacto](#contact)
 
 ## Screenshots
 ![Example screenshot](./img/s1.png)
+
+## Tecnologias
+Para este proyecto se usaron las siguientes tecnologias
+* Django - version 3.2.0
+* Postgres - version 10.14
+
+## Features
+Caracteristicas listas por el momento.
+* Registro e inicio de sesión para adoptantes
+* Registro e inicio de sesión para fundaciones
+
+To-do list:
+* Agregar mascotas
+* Visualizar mascotas
+* Añadir mascota a favoritos
+* Crear vista de perfil adoptante
+
+## Estado
+El proyecto se encuentra en: _en_progreso_ aun se esta desarrollando el front end y el back end.
+
+
