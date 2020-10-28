@@ -13,7 +13,7 @@
 
 ## Screenshots
 ![reg-fund](./img/s1.png)
-![reg-adop](./img/s2.png)
+![reg-adop](./img/s3.png)
 
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
