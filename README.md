@@ -6,7 +6,7 @@
 * [Screenshots](#screenshots)
 * [Tecnologias](#tecnologias)
 * [Instalación](#setup)
-* [Caracteristicas](#features)
+* [Caracteristicas](#caracteristicas)
 * [Estado](#estado)
 * [Inspiración](#inspiration)
 * [Contacto](#contact)
@@ -20,7 +20,7 @@ Para este proyecto se usaron las siguientes tecnologias
 * Django - version 3.2.0
 * Postgres - version 10.14
 
-## Features
+## Caracteristicas
 Caracteristicas listas por el momento.
 * Registro e inicio de sesión para adoptantes
 * Registro e inicio de sesión para fundaciones
