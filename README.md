@@ -1,7 +1,7 @@
 # Mascotas App
 > Este repositorio alberga la aplicación hecha en django de una app para mostrar las mascotas de una fundación
 
-## Table of contents
+## Indice
 * [Información General](#general-info)
 * [Screenshots](#screenshots)
 * [Tecnologias](#tecnologias)
