@@ -4,10 +4,10 @@
 ## Table of contents
 * [Información General](#general-info)
 * [Screenshots](#screenshots)
-* [Tecnologias](#technologies)
+* [Tecnologias](#tecnologias)
 * [Instalación](#setup)
 * [Caracteristicas](#features)
-* [Estado](#status)
+* [Estado](#estado)
 * [Inspiración](#inspiration)
 * [Contacto](#contact)
 
