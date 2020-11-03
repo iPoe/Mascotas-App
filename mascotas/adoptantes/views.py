@@ -22,7 +22,7 @@ def pag_registro_adoptante(request):
 def login_adoptante(request):
 	context = {}
 	# if request.method == 'POST':
-	# 	request.POST.get('username')
+	# 	request.POST.get('username') #CHEQUEAR SI ES ADOPTANTE O FUNDACIÓN
 	# 	request.POST.get('password')
 
 	return render(request,'adoptantes/login_1.html',context)
