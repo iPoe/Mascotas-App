@@ -27,4 +27,8 @@ def login_adoptante(request):
 
 	return render(request,'adoptantes/login_1.html',context)
 
+def vista_main(request):
+	context = {}
+	return render(request,'adoptantes/main.html',context)
+
 # Create your views here.
