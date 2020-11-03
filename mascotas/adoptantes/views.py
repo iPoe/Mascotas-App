@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate,login
 
 
 from .forms import CreateUserForm
@@ -16,13 +17,14 @@ def pag_registro_adoptante(request):
 	context = {'form': form}
 	return render(request,'adoptantes/registro.html',context)
 
-def pag_registro_fundacion(request):
-	context = {}
-	return render(request,'adoptantes/registro_fundacion.html',context)
 
 
 def login_adoptante(request):
 	context = {}
-	return render(request,'adoptantes/login.html',context)
+	# if request.method == 'POST':
+	# 	request.POST.get('username')
+	# 	request.POST.get('password')
+
+	return render(request,'adoptantes/login_1.html',context)
 
 # Create your views here.
