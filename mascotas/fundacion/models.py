@@ -3,10 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.core.files.storage import FileSystemStorage
 
 
-fs = FileSystemStorage(location='/media/fotos')
-
-
-
 
 
 class UsuarioFundacion(AbstractBaseUser):
@@ -20,6 +16,8 @@ class UsuarioFundacion(AbstractBaseUser):
 
 	USERNAME_FIELD = 'correo'
 	REQUIRED_FIELDS = ['nombre_fund']
+	def __str__(self):
+		return self.nombre_fund
 
 class Mascota(models.Model):
 	Nombre = models.CharField(max_length=20)
@@ -36,7 +34,9 @@ class Mascota(models.Model):
 	Estado_esterilzacion = models.CharField(choices=opciones_esterilizacion.choices, max_length=20)
 	Estado_salud = models.CharField(max_length=255)
 	idfundacion = models.ForeignKey(UsuarioFundacion,on_delete=models.CASCADE,default=None)
-	#USERNAME_FIELD = 'Nombre'
+	
+	def __str__(self):
+		return self.Nombre
 
 class Contenido_Multi(models.Model):
 	id_mascota = models.ForeignKey(Mascota,on_delete=models.CASCADE,default=None)
@@ -45,7 +45,8 @@ class Contenido_Multi(models.Model):
 	titulo = models.CharField(max_length=20)
 	descripcion = models.CharField(max_length=255)
 	foto = models.ImageField(upload_to= 'FOTOS')
-
+	def __str__(self):
+		return self.id_mascota
 
 
 	
