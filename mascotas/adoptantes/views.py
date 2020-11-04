@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login
+from django.contrib.auth.decorators import login_required
 from django.contrib import  messages
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
@@ -69,7 +70,7 @@ class LoginView(FormView):
 
 # 	context = {}
 # 	return render(request,'adoptantes/login_1.html',context)
-
+@login_required(login_url='adoptantes:login')
 def vista_main(request):
 	context = {}
 	return render(request,'adoptantes/main.html',context)
