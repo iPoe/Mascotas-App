@@ -27,19 +27,19 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							{{form.username}}
+							{{form.nombre}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
 							</div>
-							{{form.email}}
+							{{form.correo}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							{{form.password1}}
+							{{form.password}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
@@ -53,7 +53,9 @@
 				   		</div>
 					</form>
 				</div>
-				{{form.errors}}
+				{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Ya tienes una cuenta? <a href="{% url 'adoptantes:login' %}" class="ml-2">Iniciar sesión</a>

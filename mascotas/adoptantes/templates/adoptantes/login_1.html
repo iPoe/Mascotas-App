@@ -93,7 +93,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" placeholder="Correo..." class="form-control">
+							<input type="text" name="correo" placeholder="Correo..." class="form-control">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
@@ -108,7 +108,10 @@
 					</form>
 
 				</div>
-		
+				{{form.errors}}
+				{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						No tienes cuenta? <a href="{% url 'adoptantes:registro' %}" class="ml-2">Registrarme</a>

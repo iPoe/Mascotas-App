@@ -5,7 +5,7 @@ from . import views
 app_name = 'adoptantes'
 
 urlpatterns = [
-	path('registro/', views.pag_registro_adoptante,name="registro"),
-	path('login_adop/', views.login_adoptante,name="login"),
-	path('',views.vista_main,name="test"),
+	path('registro/', views.vista_registro_adoptante.as_view(),name="registro"),
+	path('login_adop/', views.LoginView.as_view(),name="login"),
+	path('',views.vista_main,name="main"),
 ]

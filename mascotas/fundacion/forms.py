@@ -11,7 +11,7 @@ class RegistrarFundacionForm(UserCreationForm):
 
 	class Meta:
 		model = UsuarioFundacion
-		fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2",)
+		fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
 
 	# def save(self):
 	# 	fundacion  = UsuarioFundacion(
