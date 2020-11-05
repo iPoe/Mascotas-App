@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<title>Fundacion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+
+          <img id="currentPhoto" src="{% static 'images/perfil.png' %}"  width="100%">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>Fundaciòn</h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p>Somos una gran fundaciòn </p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Acciones de Administrador</b></p>
+          <p><button class="w3-button w3-teal w3-block w3-round-xxlarge">Agregar Mascota</button></p>
+          <p><button class="w3-button w3-teal w3-block w3-round-xxlarge">Editar Mascota</button></p>
+          <p><button class="w3-button w3-teal  w3-block w3-round-xxlarge">Eliminar Mascota</button></p>
+          <hr>
+          <p><button class="w3-button w3-cyan  w3-block w3-round-xxlarge">Cerrar Sesiòn</button></p>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Editar Mascota</h2>
+        
+        
+        <div class="w3-container">
+           <div class="w3-container w3-teal">
+            <h2>Formulario</h2>
+          </div>
+
+          <form class="w3-container">
+            <label class="w3-text-teal"><b>Nombre</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Descripciòn</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Sexo</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Tipo</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Estado Esterilizaciòn</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Estado Salud</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Ciudad</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <label class="w3-text-teal"><b>Descripciòn</b></label>
+            <input class="w3-input w3-border w3-light-grey" type="text">
+
+            <button class="w3-btn w3-blue-grey">Agregar o Eliminar Fotos</button>
+            <hr>
+            <button class="w3-btn w3-blue-grey">Aceptar</button>
+          </form> 
+    
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Creado por:</p>
+  <p> Ana Maria Garcia, Leonardo Saez, Katherine Camacho, Andrès Felipe Delgado</p>
+
+</footer>
+
+</body>
+</html>
