@@ -13,14 +13,15 @@ class vista_registro_adoptante(FormView):
 	#form = CreateUserForm()
 	form_class = forms.RegistrarAdoptante
 	template_name = 'adoptantes/registro.html'
-	success_url = reverse_lazy('adoptantes:main')
+	success_url = reverse_lazy('adoptantes:login')
 	fail_url = reverse_lazy('adoptantes:registro')
 
 	def form_valid(self,form):
 		if form.cleaned_data['password'] == form.cleaned_data['password2']:
 			user = form.save(commit=False)
 			user.save()
-			login(self.request,user)
+			print(user)
+			login(self.request,user,backend='django.contrib.auth.backends.ModelBackend')
 			if user is not None:
 				return HttpResponseRedirect(self.success_url)
 			return super().form_valid(form)
@@ -41,11 +42,12 @@ class LoginView(FormView):
         password = form.cleaned_data['password']
 
         user = authenticate(username=correo,
-                            password=password)
+                            password=password,)
         print(user,correo,password)
 
         if user is not None:
-            login(self.request, user)
+            login(self.request, user,backend='django.contrib.auth.backends.ModelBackend'
+            	)
             return HttpResponseRedirect(self.success_url)
 
         else:
@@ -70,7 +72,7 @@ class LoginView(FormView):
 
 # 	context = {}
 # 	return render(request,'adoptantes/login_1.html',context)
-@login_required(login_url='adoptantes:login')
+#@login_required(login_url='adoptantes:login')
 def vista_main(request):
 	context = {}
 	return render(request,'adoptantes/main.html',context)

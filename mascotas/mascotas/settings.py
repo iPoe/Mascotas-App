@@ -82,29 +82,30 @@ WSGI_APPLICATION = 'mascotas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'leonardo',
-        
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
-        # 'ENGINE': 'django.db.backends.mysql' instead of the following.
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': '/cloudsql/django-practice-293117:us-central1:mascotas',
-        'NAME': 'usuarios',
-        'USER': 'admin_post',
-        'PASSWORD': '15AVyYI6eHTW',
-        # For MySQL, set 'PORT': '3306' instead of the following. Any Cloud
-        # SQL Proxy instances running locally must also be set to tcp:3306.
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'leonardo',
+        'PASSWORD':'121284'
+        
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         # If you are using Cloud SQL for MySQL rather than PostgreSQL, set
+#         # 'ENGINE': 'django.db.backends.mysql' instead of the following.
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': '/cloudsql/django-practice-293117:us-central1:mascotas',
+#         'NAME': 'usuarios',
+#         'USER': 'admin_post',
+#         'PASSWORD': '15AVyYI6eHTW',
+#         # For MySQL, set 'PORT': '3306' instead of the following. Any Cloud
+#         # SQL Proxy instances running locally must also be set to tcp:3306.
+#         'PORT': '3306',
+#     }
+# }
 # In the flexible environment, you connect to CloudSQL using a unix socket.
 # Locally, you can use the CloudSQL proxy to proxy a localhost connection
 # to the instance
