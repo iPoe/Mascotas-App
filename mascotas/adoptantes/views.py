@@ -46,8 +46,8 @@ class LoginView(FormView):
         print(user,correo,password)
 
         if user is not None:
-            login(self.request, user,backend='django.contrib.auth.backends.ModelBackend'
-            	)
+            login(self.request, user,backend='django.contrib.auth.backends.ModelBackend')
+         
             return HttpResponseRedirect(self.success_url)
 
         else:
@@ -72,7 +72,7 @@ class LoginView(FormView):
 
 # 	context = {}
 # 	return render(request,'adoptantes/login_1.html',context)
-#@login_required(login_url='adoptantes:login')
+@login_required(login_url='adoptantes:login')
 def vista_main(request):
 	context = {}
 	return render(request,'adoptantes/main.html',context)
