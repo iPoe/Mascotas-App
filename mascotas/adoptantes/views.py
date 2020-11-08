@@ -2,16 +2,17 @@ from django.shortcuts import render,redirect
 from django.views import generic
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 from django.contrib import  messages
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
-from . import forms
+from .forms import LoginAdoptante,RegistrarAdoptante
 
 class vista_registro_adoptante(FormView):
 	#form = CreateUserForm()
-	form_class = forms.RegistrarAdoptante
+	form_class = RegistrarAdoptante
 	template_name = 'adoptantes/registro.html'
 	success_url = reverse_lazy('adoptantes:login')
 	fail_url = reverse_lazy('adoptantes:registro')
@@ -29,10 +30,12 @@ class vista_registro_adoptante(FormView):
 			messages.info(self.request,'Mistakes were made')
 			return HttpResponseRedirect(self.fail_url)
 
+
+
 class LoginView(FormView):
     """login view"""
 
-    form_class = forms.LoginAdoptante
+    form_class = LoginAdoptante
     success_url = reverse_lazy('adoptantes:main')
     template_name = 'adoptantes/login_1.html'
 
@@ -47,7 +50,7 @@ class LoginView(FormView):
 
         if user is not None:
             login(self.request, user,backend='django.contrib.auth.backends.ModelBackend')
-         
+
             return HttpResponseRedirect(self.success_url)
 
         else:

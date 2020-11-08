@@ -15,10 +15,14 @@ class RegistrarAdoptante(forms.ModelForm):
 		model = adoptante
 		fields = ('correo','nombre','password')
 
-class LoginAdoptante(forms.Form):
+class LoginAdoptante(forms.ModelForm):
 	"""Form para el login del adoptante"""
+	model = adoptante
 	correo = forms.EmailField()
 	password = forms.CharField(widget=forms.PasswordInput())
+	class Meta:
+		model = adoptante
+		fields = ['correo','password']
 
 
 
