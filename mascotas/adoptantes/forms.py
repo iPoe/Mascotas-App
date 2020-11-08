@@ -20,9 +20,9 @@ class LoginAdoptante(forms.ModelForm):
 	model = adoptante
 	correo = forms.EmailField()
 	password = forms.CharField(widget=forms.PasswordInput())
-	class Meta:
-		model = adoptante
-		fields = ['correo','password']
+	# class Meta:
+	# 	model = adoptante
+	# 	fields = ['correo','password']
 
 
 
