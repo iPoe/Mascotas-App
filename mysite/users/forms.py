@@ -25,9 +25,25 @@ class AdoptloginForm(forms.ModelForm):
 
 class FundacionSignUpForm(UserCreationForm):
     correo = forms.EmailField(label="Correo")
-
+    nombre_fund = forms.CharField(max_length=20)
+    info_fundacion = forms.CharField(max_length=50)
+    list_ciudades = ((1,'Cali'),(2,'Palmira'))
+    ciudad = forms.ChoiceField(choices=list_ciudades)
     class Meta(UserCreationForm.Meta):
-        model = Fundacion
+        model = usuarios
         fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
+    def save(self):
+        usuario = usuarios(correo = self.validated_data['correo'],password = self.validated_data['password1'])
+        usuario_fund = Fundacion(
+            correo = self.validated_data['correo'],
+          nombre_fund = self.validated_data['nombre_fund'],
+          info_fundacion = self.validated_data['info_fundacion'],
+          ciudad = self.validated_data['ciudad']
+            )
+        usuario.es_fundacion=True
+        usuario.save()
+        usuario_fund.save()
+        print(usuario_fund)
+        return usuario 
         
 
