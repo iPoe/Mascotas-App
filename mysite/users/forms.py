@@ -33,17 +33,19 @@ class FundacionSignUpForm(UserCreationForm):
         model = usuarios
         fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
     def save(self):
-        usuario = usuarios(correo = self.validated_data['correo'],password = self.validated_data['password1'])
+        user = super().save(commit=False)
+        user.es_fundacion=True
+        user.save()        
         usuario_fund = Fundacion(
-            correo = self.validated_data['correo'],
-          nombre_fund = self.validated_data['nombre_fund'],
-          info_fundacion = self.validated_data['info_fundacion'],
-          ciudad = self.validated_data['ciudad']
+            usuario = user,
+          nombre_fund = self.cleaned_data['nombre_fund'],
+          info_fundacion = self.cleaned_data['info_fundacion'],
+          ciudad = self.cleaned_data['ciudad']
             )
-        usuario.es_fundacion=True
-        usuario.save()
+        # usuario.es_fundacion=True
+        # usuario.save()
         usuario_fund.save()
-        print(usuario_fund)
-        return usuario 
-        
+        # print(usuario_fund)
+        # return usuario 
+        return user
 
