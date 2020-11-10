@@ -26,7 +26,7 @@ class AdoptSignUpView(CreateView):
 #Todo-login view para adoptantes
 
 
-@login_required(login_url='users:registro')
+#@login_required(login_url='users:registro')
 def vista_main(request):
     context = {}
-    return render(request,'adoptantes/main.html',context)
+    return render(request,'adoptantes/login_1.html',context)
