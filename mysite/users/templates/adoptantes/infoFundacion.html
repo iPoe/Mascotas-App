@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+		/>
+
+		<title>infoFundacion</title>
+
+
+		<style>
+			html {
+				min-height: 100%;
+				position: relative;
+			}
+						
+			body {
+				background-color: #f5f7fa;
+				font-family: 'Roboto', sans-serif;
+				margin: 0;
+				margin-bottom: 10px;
+			}
+			.container {
+				display: flex;
+			}
+			.side {
+				min-width: 320px;
+				height: 200px;
+				background-color: #fff;
+				height: 100%;
+				min-height: 100vh;
+				border-right: 3px solid #e1e1e1;
+			}
+			.content {
+				width: 100%;
+				display: flex;
+				padding: 20px 0;
+				align-items: center;
+				flex-direction: column;
+
+			}
+			.side .header {
+				background: linear-gradient(262deg, #ff7854, #fd267d);
+				width: 100%;
+				height: 150px;
+				box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+				display: flex;
+				align-items: center;
+				padding: 0 1px;
+			}
+
+			.side .header .avatar img {
+				width: 70px;
+				height: 70px;
+				border-radius: 100px;
+				border: 3px solid #fff;
+				box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+				margin: 0 18px;
+			}
+
+			.side .header .title {
+				padding: 0 0.01px;
+				color: #fff;
+				font-size: 23px;
+			}
+
+			.side .menu ul {
+				display: flex;
+				padding: 0 20px;
+			}
+
+			.side .menu ul li {
+				list-style: none;
+				margin: 0 10px;
+				font-weight: 700;
+				font-size: 15px;
+				letter-spacing: 0.5px;
+			}
+
+			.side .menu .active {
+				border-bottom: 3px solid #fd5068;
+				padding-bottom: 2px;
+			}
+
+			.side .messages {
+				padding: 10px 20px;
+				display: flex;
+				align-items: center;
+				transition: 0.2s box-shadow;
+			}
+
+			.side .messages .avatar img {
+				width: 70px;
+				height: 70px;
+				border-radius: 70px;
+
+			}
+
+			.side .messages .avatar2 img {
+				width: 120px;
+				height: 70px;
+				border-radius: 70px;
+				margin: 0 -23px;
+
+
+			}
+
+			.side .messages .user {
+				padding: 0 10px;
+				font-weight: 500;
+				letter-spacing: 0.5px;
+				font-size: 18px;
+			}
+
+			.side .messages .text {
+				width: 200px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				padding: 0 10px;
+				font-weight: 300;
+				font-size: 15px;
+				opacity: 0.8;
+
+			}
+
+			.side .messages:hover {
+				box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
+				border-right: 5px solid #0b76a6;
+			}
+
+			.container .card {
+				position: relative;
+				height: 220px;
+			}
+
+			.content .card .user {
+				width: 320px;
+				height: 350px;
+				object-fit: cover;
+				border-radius: 15px;
+				box-shadow: 0 3px 10px 0 rgba(0, 20, 20, 0.5);
+				margin-top: 40px;
+			}
+
+			.content .card .user .profile {
+				position: absolute;
+				bottom: 0px;
+				left: -50px;
+			}
+
+			.content .card .user .name {
+				color: #030303;
+				font-size: 20px;
+				font-weight: 500;
+				letter-spacing: 0.5px;
+				margin: 0 70px;
+				margin-top: 40px;
+			}
+
+			.content .card .user .name span {
+				font-size: -20px;
+			}
+
+		
+
+        	footer {
+            position: relative;/* Altura total del footer en px con valor negativo */
+			margin-top: -200px;/* Altura del footer en px. Se han restado los 5px del margen superior mas los 5px del margen inferior*/
+			height: 5px;
+            padding:80px 10px;
+            clear: both;
+            background: #c8c4c4;
+            text-align: center;
+            color: #030303;
+     
+       		}
+
+			.define {
+
+				width:980px;
+				margin:0 auto;
+       		}
+
+       		#main-header {
+				background: #c8c4c4;
+				color: white;
+				height: 80px;
+			}	
+			#main-header a {
+				color: white;
+			}
+
+			/*
+			 * Logo
+			 */
+			#logo-header {
+				float: left;
+				padding: 15px 0 0 20px;
+				text-decoration: none;
+			}
+			#logo-header:hover {
+				color: #0b76a6;
+			}
+			
+			#logo-header .site-name {
+				display: block;
+				font-weight: 700;
+				font-size: 1.2em;
+			}
+			
+			#logo-header .site-desc {
+				display: block;
+				font-weight: 300;
+				font-size: 0.8em;
+				color: #060606;
+			}
+	
+
+			/*
+			 * Navegación
+			 */
+			nav {
+				float: right;
+			}
+				nav ul {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					padding-right: 20px;
+				}
+				
+					nav ul li {
+						display: inline-block;
+						line-height: 80px;
+					}
+						
+						nav ul li a {
+							display: block;
+							padding: 0 10px;
+							text-decoration: none;
+						}
+						
+							nav ul li a:hover {
+								background: #0b76a6;
+							}
+
+		</style>
+
+	</head>
+	<body>
+		<header id="main-header">
+		
+		<a id="logo-header" href="#">
+			<span class="site-name">Tu mascota</span>
+			<span class="site-desc">¡Adopta hoy!</span>
+		</a> <!-- / #logo-header -->
+
+		<nav>
+			<ul>
+				<li><a href="#">Cerrar sesión</a></li>
+			</ul>
+		</nav><!-- / nav -->
+
+		</header><!-- / #main-header -->
+
+		<div class="container">
+			<div class="side">
+				<div class="header">
+					<div class="avatar">
+						<img src="https://randomuser.me/api/portraits/women/64.jpg" alt="" />
+
+					</div>
+					<div class="title">Mi perfil</div>
+				</div>
+
+				<div class="messages">
+					<div class="avatar">
+						<img src="../../static/adoptantes/images/catalogo.jpg">
+					</div>
+					<div class="message">
+						<div class="user">Catálago</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="avatar2">
+						<img src="../../static/adoptantes/images/Match.jpeg">
+					</div>
+					<div class="message">
+						<div class="user">Mis Match</div>
+					</div>
+				</div>
+				<div class="messages">
+					<div class="message">
+						<div class="user">@Acerca de FundacionA</div>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="content">
+				<div class="card">
+					<div class="user">
+						<div class="profile">
+							<div class="name">
+							<h5> Nuestra fundación se llama: </h5>
+							<h5> Nuestra misión es: </h5>
+							<h5> Nuestro ubicación es: </h5>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+    <footer>
+        <div class='define'>
+            <p>Creado por:</p>
+            <p>Leonardo Saenz, Andrés Delgado, Ana Maria Garcia, Katherine Camacho</p>
+        </div>
+    </footer>
+
+</html>
