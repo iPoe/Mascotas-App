@@ -17,10 +17,12 @@ class AdoptSignUpForm(UserCreationForm):
         user.save()
         return user
 
-class AdoptloginForm(forms.ModelForm):
-    model = usuarios
+class UserloginForm(forms.ModelForm):
     correo = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = usuarios
+        fields = ["correo","password"]
 
 
 class FundacionSignUpForm(UserCreationForm):
