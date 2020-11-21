@@ -1,14 +1,14 @@
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 from django.shortcuts import redirect,render
 from django.views.generic import CreateView
-from django.views.generic.edit import FormView
-from django.contrib import messages
+
+
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import views as auth_views
-from django.shortcuts import resolve_url
+
 from ..models import usuarios
 from ..forms import AdoptSignUpForm,UserloginForm
-
+from ..decorators import adop_required
 
 class AdoptSignUpView(CreateView):
     model = usuarios
@@ -34,12 +34,26 @@ def loginPage(request):
         print(user.es_fundacion)
         if user is not None:
             login(request,user)
-            return redirect('users:main')
+            if user.es_adoptante:
+                return redirect('users:main')
+            else:
+                return redirect('users:main2')
     context = {}
     return render(request,'adoptantes/login.html',context)
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('users:login')
+
+
 #@login_required(login_url='users:registro')
+@login_required
+@adop_required
 def vista_main(request):
     context = {}
     return render(request,'adoptantes/misMatch.html',context)
+
+def vista_main_2(request):
+    context = {}
+    return render(request,'adoptantes/infoFundacion.html',context)

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/style.css" />
+		
 		<link
 			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&display=swap"
 			rel="stylesheet"
@@ -16,7 +17,7 @@
 		<title>infoFundacion</title>
 
 
-		<style>
+		<style>s
 			html {
 				min-height: 100%;
 				position: relative;
@@ -266,7 +267,7 @@
 
 		<nav>
 			<ul>
-				<li><a href="#">Cerrar sesión</a></li>
+				<li><a href="{% url 'users:logout' %}">Cerrar sesión</a></li>
 			</ul>
 		</nav><!-- / nav -->
 
