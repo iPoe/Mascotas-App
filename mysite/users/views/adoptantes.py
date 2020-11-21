@@ -26,27 +26,17 @@ class AdoptSignUpView(CreateView):
 
 
 #Todo-login view para adoptantes
-# class UserLoginView(FormView):
-#     #model = usuarios
-#     form_class = UserloginForm
-#     template_name = 'adoptantes/login_1.html'
-#     def form_valid(self,form):
-#         correo = form.cleaned_data['correo']
-#         password = form.cleaned_data['password']
-#         user = authenticate(username=correo,
-#                             password=password)
-#         if user is not None:
-#             login(self.request, user)
-#             return redirect('users:main')
-
-
-
-class LoginView(auth_views.LoginView):
-    template_name = 'adoptantes/login_1.html'
-    form_class = UserloginForm
-    def get_success_url(self):
-        return resolve_url('users:main')
-
+def loginPage(request):
+    if request.method == 'POST':
+        correo = request.POST.get('correo')
+        password = request.POST.get('password')
+        user = authenticate(request,username=correo,password=password)
+        print(user.es_fundacion)
+        if user is not None:
+            login(request,user)
+            return redirect('users:main')
+    context = {}
+    return render(request,'adoptantes/login.html',context)
 
 
 #@login_required(login_url='users:registro')

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.db import transaction
 
 from users.models import usuarios,Fundacion
@@ -17,7 +17,7 @@ class AdoptSignUpForm(UserCreationForm):
         user.save()
         return user
 
-class UserloginForm(forms.ModelForm):
+class UserloginForm(AuthenticationForm):
     correo = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
