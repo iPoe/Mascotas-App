@@ -44,10 +44,7 @@ class FundacionSignUpForm(UserCreationForm):
           info_fundacion = self.cleaned_data['info_fundacion'],
           ciudad = self.cleaned_data['ciudad']
             )
-        # usuario.es_fundacion=True
-        # usuario.save()
+
         usuario_fund.save()
-        # print(usuario_fund)
-        # return usuario 
         return user
 
