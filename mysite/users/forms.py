@@ -29,6 +29,7 @@ class FundacionSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Fundacion
         fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
+
     def save(self):
         user = super().save(commit=False)
         user.es_fundacion=True
@@ -42,7 +43,6 @@ class FundacionSignUpForm(UserCreationForm):
 
         usuario_fund.save()
         return user
-
 
 class AgregarMascota(forms.ModelForm):
     class Meta():

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from ..models import usuarios
 
+
 from ..models import Mascota
 from ..models import Match
 from ..models import Contenido_Multi
@@ -13,13 +14,6 @@ from ..decorators import adop_required
 
 
 from ..forms import AdoptSignUpForm
-
-
-# def index(request):
-
-
-
-
 
 
 
@@ -40,6 +34,7 @@ class AdoptSignUpView(CreateView):
 
 
 #Todo-login view para adoptantes
+
 
 
 @login_required(login_url='users:registro')
@@ -68,6 +63,12 @@ def vista_main(request):
 
 
 def vista_main_2(request):
+
+
+
+
+@login_required(login_url='users:registro')
+def vista_main(request):
 
     context = {}
     return render(request,'adoptantes/main.html',context)
