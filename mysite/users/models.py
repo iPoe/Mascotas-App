@@ -72,23 +72,20 @@ class Fundacion(models.Model):
 		return self.nombre_fund
 
 class Mascota(models.Model):
-    foto= models.ImageField(upload_to='Mascotas/', null=True, verbose_name="")
-    Nombre = models.CharField(max_length=20)
-    Descripcion = models.CharField(max_length=255)
-    opciones_tipo = models.TextChoices('Tipo','Perro Gato Otro')
-    Tipo_Mascota = models.CharField(choices=opciones_tipo.choices,max_length=10)
-    Edad = models.IntegerField()
-    opciones_genero = (
-    		('F','Femenino'),
-    		('M','Masculino')
-    	)
-    genero = models.CharField(max_length=1,choices=opciones_genero)
-    opciones_esterilizacion = models.TextChoices('Estado','No_esterilizado Esterilizado')
-    Estado_esterilzacion = models.CharField(choices=opciones_esterilizacion.choices, max_length=20)
-    Estado_salud = models.CharField(max_length=255)
-    opciones_ciudades       = models.TextChoices('City','Palmira Cali Candelaria')
-    ciudad                  = models.CharField(blank=True,choices=opciones_ciudades.choices,max_length=10)
-    idfundacion = models.ForeignKey(Fundacion,on_delete=models.CASCADE,default=None,null=True)
+	Nombre = models.CharField(max_length=20)
+	Descripcion = models.CharField(max_length=255)
+	opciones_tipo = models.TextChoices('Tipo','Perro Gato Otro')
+	Tipo_Mascota = models.CharField(choices=opciones_tipo.choices,max_length=10)
+	Edad = models.IntegerField()
+	opciones_genero = (
+			('F','Femenino'),
+			('M','Masculino')
+		)
+	genero = models.CharField(max_length=1,choices=opciones_genero)
+	opciones_esterilizacion = models.TextChoices('Estado','No_esterilizado Esterilizado')
+	Estado_esterilzacion = models.CharField(choices=opciones_esterilizacion.choices, max_length=20)
+	Estado_salud = models.CharField(max_length=255)
+	idfundacion = models.ForeignKey(Fundacion,on_delete=models.CASCADE,default=None)
 
 class Match(models.Model):
 	Idusuario = models.ForeignKey(usuarios,on_delete=models.CASCADE,default=None)
@@ -100,8 +97,9 @@ class Contenido_Multi(models.Model):
 	tipo_contenido = models.CharField(choices=opciones_tipo.choices,max_length=10)
 	titulo = models.CharField(max_length=20)
 	descripcion = models.CharField(max_length=255)
-	foto = models.ImageField(upload_to= 'FOTOS')
-	
+	foto = models.ImageField(upload_to='FOTOS/')
+	# def __str__(self):
+	# 	return self.id_mascota
 
 
 # Create your models here.
