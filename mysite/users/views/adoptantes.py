@@ -70,6 +70,16 @@ def vista_main(request):
     #print(request.user.correo)
     return render(request,'adoptantes/slider.html',context)
 
+#@login_required
+#def perfil(request):
+
+#    nombre = usuarios.get(correo=request.user)
+#    correo = usuarios.get(nombre=request.user)
+#    context = {nombre, correo}
+#    return render(request,'adoptantes/perfil.html', context)
+
+
+
 def vista_main_2(request):
     
     context = {}
