@@ -14,13 +14,6 @@ from ..forms import AdoptSignUpForm,UserloginForm
 from ..decorators import adop_required
 
 
-# def index(request):
-
-
-
-
-
-
 
 class AdoptSignUpView(CreateView):
     model = usuarios
@@ -62,13 +55,15 @@ def logoutUser(request):
 @login_required
 @adop_required
 def vista_main(request):
-    #usuario = usuarios.objects.filter(correo = request.user.correo)
-    matchs_usuario = Match.objects.get(Idusuario=request.user)
-    print(matchs_usuario.IdMascota)
-    fotos_slide = Contenido_Multi.objects.filter(id_mascota=matchs_usuario.IdMascota)
+    mascotas = Mascota.objects.all()
+    fotos_slide = Contenido_Multi.objects.filter(id_mascota__in=mascotas)
     context = {'fotos_slide':fotos_slide}
-    #print(request.user.correo)
-    return render(request,'adoptantes/slider.html',context)
+    ##What to do to capture the pet and added to likes
+    #when button is clicked
+    if request.method == 'POST':
+        print("Script Working....")
+
+    return render(request,'adoptantes/catálogo.html',context)
 
 #@login_required
 #def perfil(request):
