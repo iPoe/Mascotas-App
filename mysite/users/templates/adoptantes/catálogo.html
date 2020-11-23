@@ -324,7 +324,7 @@
 
 		<nav>
 			<ul>
-				<li><a href="{% url 'users:logout' %}">Cerrar sesión</a></li>
+				<li><a href="#">Cerrar sesión</a></li>
 			</ul>
 		</nav><!-- / nav -->
 
@@ -366,24 +366,27 @@
 
 			<div class="content">
 				
-				
+				{% for f in fotos_slide %}
 				<div class="card">
 					<div class="user">
-						{%include 'adoptantes/carousel.html'%}
+						<img class="user"src="{{ f.foto.url }}" alt="" style="height: 300px"/>
+						<div class="profile">
+							<div class="name">{{ f.titulo}}</div>
+							<div class="local">
+								<i class="fas fa-map-marker-alt"></i>
+								<span>Busco a mi mejor amigo</span>
+							</div>
+						</div>
 					</div>
 				</div>
-				
+				{% endfor %}
 				<div class="buttons">
 					<div class="no">
 						<i class="fas fa-times"></i>
 					</div>
-					<form method="POST" action=""> {% csrf_token %}
-						<input type="submit" class="heart" href="" data-slide="next" width="100%" class="img-responsive center-block">
+					<div class="heart">
 						<i class="fas fa-heart"></i>
-					</form>	
-					
-					
-					
+					</div>
 				</div>
 			</div>
 		</div>

@@ -4,16 +4,23 @@ from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 
 from ..models import usuarios
-<<<<<<< HEAD
+
 from ..models import Mascota
 from ..models import Match
 from ..models import Contenido_Multi
 from ..forms import AdoptSignUpForm,UserloginForm
 from ..decorators import adop_required
 
-=======
+
 from ..forms import AdoptSignUpForm
->>>>>>> parent of 4c4937d... Merge branch 'main' of https://github.com/iPoe/Mascotas-App into main
+
+
+# def index(request):
+
+
+
+
+
 
 
 class AdoptSignUpView(CreateView):
@@ -37,16 +44,18 @@ class AdoptSignUpView(CreateView):
 
 @login_required(login_url='users:registro')
 def vista_main(request):
-<<<<<<< HEAD
+
     mascotas = Mascota.objects.all()
     fotos_slide = Contenido_Multi.objects.filter(id_mascota__in=mascotas)
-    context = {'fotos_slide':fotos_slide}
-    ##What to do to capture the pet and added to likes
-    #when button is clicked
-    if request.method == 'POST':
-        print("Script Working....")
 
-    return render(request,'adoptantes/catálogo.html',context)
+    #usuario = usuarios.objects.filter(correo = request.user.correo)
+    matchs_usuario = Match.objects.get(Idusuario=request.user)
+    print(matchs_usuario.IdMascota)
+    fotos_slide = Contenido_Multi.objects.filter(id_mascota=matchs_usuario.IdMascota)
+
+    context = {'fotos_slide':fotos_slide}
+    #print(request.user.correo)
+    return render(request,'adoptantes/slider.html',context)
 
 #@login_required
 #def perfil(request):
@@ -59,8 +68,6 @@ def vista_main(request):
 
 
 def vista_main_2(request):
-    
-=======
->>>>>>> parent of 4c4937d... Merge branch 'main' of https://github.com/iPoe/Mascotas-App into main
+
     context = {}
     return render(request,'adoptantes/main.html',context)
