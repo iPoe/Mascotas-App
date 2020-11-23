@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
-from users.models import usuarios,Fundacion, Mascota, Contenido_Multi
+from users.models import usuarios,Fundacion
 
 class AdoptSignUpForm(UserCreationForm):
     correo = forms.EmailField(label="Correo electrónico")
@@ -29,6 +29,20 @@ class FundacionSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Fundacion
         fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
+    def save(self):
+        user = super().save(commit=False)
+        user.es_fundacion=True
+        user.save()        
+        usuario_fund = Fundacion(
+            usuario = user,
+          nombre_fund = self.cleaned_data['nombre_fund'],
+          info_fundacion = self.cleaned_data['info_fundacion'],
+          ciudad = self.cleaned_data['ciudad']
+            )
+
+        usuario_fund.save()
+        return user
+
 
 class AgregarMascota(forms.ModelForm):
     class Meta():
@@ -58,4 +72,3 @@ class AgregarMultimedia(forms.ModelForm):
             'titulo': forms.TextInput(attrs={'class': 'w3-input w3-border w3-light-grey'}),
             'tipo_contenido': forms.Select(attrs={'class': 'w3-input w3-border w3-light-grey'}),
         }       
-
