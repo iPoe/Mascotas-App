@@ -97,9 +97,9 @@ class Contenido_Multi(models.Model):
 	tipo_contenido = models.CharField(choices=opciones_tipo.choices,max_length=10)
 	titulo = models.CharField(max_length=20)
 	descripcion = models.CharField(max_length=255)
-	foto = models.ImageField(upload_to= 'FOTOS')
-	def __str__(self):
-		return self.id_mascota
+	foto = models.ImageField(upload_to='FOTOS/')
+	# def __str__(self):
+	# 	return self.id_mascota
 
 
 # Create your models here.

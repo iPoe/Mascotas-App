@@ -1,33 +1,36 @@
 
-{% load static %}
-	<!-- HOME -->
-	<div id="home">
-		<!-- container -->
-		<div class="container">
-			<!-- home wrap -->
-			<div class="home-wrap">
-				<!-- home slick -->
-				<div id="home-slick">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for obj in fotos_slide %}
+                {% if forloop.first %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="active"></li>
+                {% else %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"></li>
 
-                    {% for rs in products_slider %}
-                    <!-- banner -->
-					<div class="banner banner-1">
-						<img src="{{ rs.image.url }}" alt="" style="height: 600px">
-						<div class="banner-caption text-center">
-							<h1>{{ rs.title }}   </h1>
-							<h3 class="white-color font-weak">  {{ rs.price|currency:request.session.currency }} {{ request.session.currency }} </h3>
-							<a href="{% url 'product_detail' rs.id rs.slug %}" class="primary-btn">Shop Now</a>
+                {% endif %}
+            {% endfor %}
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            {% for obj in fotos_slide %}
+                {% if forloop.first %}
+                    <div class="carousel-item active  ">
+                {% else %}
+                    <div class="carousel-item  ">
+                {% endif %}
+                <img class="d-block w-100 h-50" class="h-50 d-inline-block" src="{{ obj.foto.url}}" alt="{{obj.titulo}}">
+                </div>
 
-						</div>
-					</div>
-					<!-- /banner -->
-                    {% endfor %}
+            {% endfor %}
+        </div>
 
-				</div>
-				<!-- /home slick -->
-			</div>
-			<!-- /home wrap -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /HOME -->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </div>

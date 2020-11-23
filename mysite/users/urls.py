@@ -11,7 +11,7 @@ urlpatterns = [
 	path('regf/',fundacion.FundtSignUpView.as_view(),name="registroFundacion"),
 	path('log/',adoptantes.loginPage,name="login"),
 	path('main2/',adoptantes.vista_main_2,name="main2"),
-	path('log/',adoptantes.logoutUser,name="logout"),
+	path('l/',adoptantes.logoutUser,name="logout"),
 
 	path('main/',adoptantes.vista_main,name="main")
 	
