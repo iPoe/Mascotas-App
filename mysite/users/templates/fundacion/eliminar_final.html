@@ -1,0 +1,87 @@
+{% extends 'fundacion/layout.html' %}
+{% load static %}
+{% block style %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.container {
+  position: relative;
+  width: 250px;
+  max-width: 250px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 2px 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+{% endblock %}
+{% block content %}
+    <!-- Columna Derecha -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>¿Seguro Desea Eliminar Esta mascota?</h2>
+        
+        
+        <div class="w3-container">
+          
+    		
+              <div class="w3-display-container">
+                <img id="currentPhoto" src="../media/{{ mascotas.foto }}"  width="100%">
+                 <form  class="w3-container " method="POST" action=""> {% csrf_token %}
+                  <input class="w3-button w3-red" type="submit" value="Eliminar">
+                  <a class="w3-button w3-teal" href="{% url 'users:sel_eliminar' %}">Cancelar</a>
+                 </form>
+              </div>
+            
+      </div>
+
+    <!-- Fin Columna Derecha -->
+    </div>
+{% endblock %}
+
+
+</body>
+</html>
