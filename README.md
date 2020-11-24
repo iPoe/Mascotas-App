@@ -13,8 +13,8 @@
 
 ## Screenshots
 
-<img src="./img/s1.png" width="500" height="350">
-<img src="./img/s3.gif" width="500" height="350">
+<img src="./img/s1.png" width="600" height="452">
+<img src="./img/s3.gif" width="600" height="452">
 
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
