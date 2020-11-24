@@ -26,7 +26,7 @@ class FundtSignUpView(CreateView):
         user = form.save()
         #print(user)
         login(self.request, user)
-        return redirect('users:main')
+        return redirect('users:agregar')
 """
 def agregar(request):
 
