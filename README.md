@@ -14,6 +14,7 @@
 ## Screenshots
 ![reg-fund](./img/s1.png)
 ![reg-adop](./img/s3.gif)
+<img src="./img/s1.png" width="300">
 
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
@@ -21,17 +22,17 @@ Para este proyecto se usaron las siguientes tecnologias
 * Postgres - version 10.14
 
 ## Caracteristicas
-Caracteristicas listas por el momento.
+Caracteristicas listas por el momento
 * Registro e inicio de sesión para adoptantes
 * Registro e inicio de sesión para fundaciones
-
-To-do list:
-* Agregar mascotas
+* Agregar o eliminar mascotas
 * Visualizar mascotas
 * Añadir mascota a favoritos
-* Crear vista de perfil adoptante
+
 
 ## Estado
-El proyecto se encuentra en: _en_progreso_ aun se esta desarrollando el front end y el back end.
+El proyecto se encuentra en: _en_producción_ en un servidor hosteado por Heroku
+
+Prueba la aplicación [TinderPet](https://stark-stream-31493.herokuapp.com/log/)- Cualquier error o bug sientete libre de reportarlo!
 
 
