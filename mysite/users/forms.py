@@ -27,11 +27,13 @@ class UserloginForm(AuthenticationForm):
 
 class FundacionSignUpForm(UserCreationForm):
     correo = forms.EmailField(label="Correo")
-
+    nombre_fund = forms.CharField(max_length=20)
+    info_fundacion = forms.CharField(max_length=50)
+    list_ciudades = ((1,'Cali'),(2,'Palmira'))
+    ciudad = forms.ChoiceField(choices=list_ciudades)
     class Meta(UserCreationForm.Meta):
-        model = Fundacion
+        model = usuarios
         fields = ("correo","nombre_fund","info_fundacion","ciudad","password1","password2")
-
     def save(self):
         user = super().save(commit=False)
         user.es_fundacion=True
@@ -42,8 +44,11 @@ class FundacionSignUpForm(UserCreationForm):
           info_fundacion = self.cleaned_data['info_fundacion'],
           ciudad = self.cleaned_data['ciudad']
             )
-
+        # usuario.es_fundacion=True
+        # usuario.save()
         usuario_fund.save()
+        # print(usuario_fund)
+        # return usuario 
         return user
 
 class AgregarMascota(forms.ModelForm):

@@ -16,7 +16,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 class FundtSignUpView(CreateView):
     model = usuarios
     form_class = FundacionSignUpForm
-    template_name = 'fundaciones/registro_f.html'
+    template_name = 'fundacion/registro_f.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'fundacion'

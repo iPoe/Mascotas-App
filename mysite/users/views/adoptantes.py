@@ -1,4 +1,4 @@
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate, logout
 from django.shortcuts import redirect,render
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
@@ -41,7 +41,7 @@ def loginPage(request):
         correo = request.POST.get('correo')
         password = request.POST.get('password')
         user = authenticate(request,username=correo,password=password)
-        print(user.es_fundacion)
+        #print(user.es_fundacion)
         if user is not None:
             login(request,user)
             if user.es_adoptante:
