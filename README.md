@@ -12,7 +12,7 @@
 * [Contacto](#contact)
 
 ## Screenshots
-[[./img/s1.png|width=100px]]
+![reg|width=100px](./img/s1.png)
 ![reg-fund](./img/s1.png)
 ![reg-adop](./img/s3.gif)
 <img src="./img/s1.png" width="300">
