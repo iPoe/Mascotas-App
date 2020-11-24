@@ -1,8 +1,8 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.db import transaction
 
-from users.models import usuarios,Fundacion
+from users.models import usuarios,Fundacion,Mascota,Contenido_Multi
 
 class AdoptSignUpForm(UserCreationForm):
     correo = forms.EmailField(label="Correo electrónico")
@@ -17,10 +17,12 @@ class AdoptSignUpForm(UserCreationForm):
         user.save()
         return user
 
-class AdoptloginForm(forms.ModelForm):
-    model = usuarios
+class UserloginForm(AuthenticationForm):
     correo = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = usuarios
+        fields = ["correo","password"]
 
 
 class FundacionSignUpForm(UserCreationForm):

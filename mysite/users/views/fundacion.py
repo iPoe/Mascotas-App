@@ -7,9 +7,26 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse 
 from django.shortcuts import get_object_or_404
 from ..models import usuarios, Fundacion, Mascota, Match, Contenido_Multi
-from ..forms import AdoptSignUpForm, AgregarMascota, AgregarMultimedia
+from ..forms import AdoptSignUpForm, AgregarMascota, AgregarMultimedia,FundacionSignUpForm
 
 from django.contrib.messages.views import SuccessMessageMixin
+
+
+
+class FundtSignUpView(CreateView):
+    model = usuarios
+    form_class = FundacionSignUpForm
+    template_name = 'fundaciones/registro_f.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'fundacion'
+        return super().get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        user = form.save()
+        #print(user)
+        login(self.request, user)
+        return redirect('users:main')
 """
 def agregar(request):
 
@@ -101,7 +118,7 @@ class EditarMascota(SuccessMessageMixin, UpdateView):
 		return Mascota.objects.filter(id=self.kwargs['pk'])
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
 
     
@@ -118,7 +135,7 @@ class EliminarMascota(SuccessMessageMixin, DeleteView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
 
 	success_url = reverse_lazy('users:sel_eliminar')
@@ -127,42 +144,50 @@ class SeleccionarMascotaEliminar(ListView):
 
 	model = Mascota
 	template_name = 'fundacion/eliminar.html'
-	queryset = Mascota.objects.filter(idfundacion="2")
+	#queryset = Mascota.objects.filter(idfundacion="2")
 	context_object_name = 'mascotas'
-	paginate_by = 1
+	paginate_by = 3
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
+	def get_query_set(self):		
+		return Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
+
+
+class SeleccionarMascota(ListView):
+
+	model = Mascota
+	template_name = 'fundacion/seleccionar.html'
+	#queryset = Mascota.objects.filter(idfundacion="2")
+	context_object_name = 'mascotas'
+	paginate_by = 3
+
+	def get_context_data(self, *args, **kwargs):
+		context = super().get_context_data(*args, **kwargs)
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
+		return context
+	def get_query_set(self):		
+		return Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
+
+
 """
 class SeleccionarMascota(ListView):
 
 	model = Mascota
 	template_name = 'fundacion/seleccionar.html'
-	queryset = Mascota.objects.filter(idfundacion="2")
+	#queryset = Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
 	context_object_name = 'mascotas'
 	paginate_by = 1
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
+	def get_query_set(self):		
+		return Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
 """
-class SeleccionarMascota(ListView):
-
-	model = Mascota
-	template_name = 'fundacion/seleccionar.html'
-	queryset = Mascota.objects.filter(idfundacion="2")
-	context_object_name = 'mascotas'
-	paginate_by = 1
-
-	def get_context_data(self, *args, **kwargs):
-		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
-		return context
-
-
 class AgregarMascota(SuccessMessageMixin, CreateView):
 	model = Mascota
 	form_class = AgregarMascota
@@ -172,11 +197,11 @@ class AgregarMascota(SuccessMessageMixin, CreateView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
 
 	def form_valid(self, form):
-		form.instance.idfundacion = Fundacion.objects.get(nombre_fund="2")
+		form.instance.idfundacion = Fundacion.objects.get(usuario=self.request.user)
 		return super(AgregarMascota, self).form_valid(form)
 
 	success_url = reverse_lazy('users:agregar')
@@ -190,7 +215,7 @@ class AgregarMulti(SuccessMessageMixin, CreateView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-		context['info'] = Fundacion.objects.filter(nombre_fund="2")
+		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
 
 	def form_valid(self, form):

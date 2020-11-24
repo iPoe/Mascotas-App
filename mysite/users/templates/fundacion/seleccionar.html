@@ -1,0 +1,142 @@
+ 
+{% extends 'fundacion/layout.html' %}
+{% load static %}
+{% block style %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.container {
+  position: relative;
+  width: 250px;
+  max-width: 250px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 2px 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+{% endblock %}
+{% block content %}
+    <!-- Columna Derecha -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Seleccione Mascota para Editar</h2>
+        
+        
+        <div class="w3-container">
+            {% for n in mascotas %}
+              <div class="gallery">
+              <a target="_self" href="../editar/{{ n.id }}">
+                <img src="../media/{{ n.foto }}" alt="" width="100%">
+              </a>
+              <div class="desc">{{ n.Nombre }}</div>
+            </div>
+            {% endfor %}
+          
+        </div>
+        {% if messages %}
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            {% endif %}
+        <div class="center">
+          <div class="pagination">
+            {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number}}">&laquo;</a>
+            {% else %}
+              <a href="#">&laquo;</a>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+              <a href="?page={{i}}" class= "{% if page_obj.number == i %} active {% endif%}">{{i}}</a>
+            {% endfor%}
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number}}">&raquo;</a>
+            {% else %}
+              <a href="#">&raquo;</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    <!--Fin Columna Derecha -->
+    </div>
+{% endblock %}
+
+
+
+</body>
+</html>
