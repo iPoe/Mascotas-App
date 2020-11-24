@@ -15,6 +15,7 @@
 
 <img src="./img/s1.png" width="500" height="350">
 <img src="./img/s3.gif" width="500" height="350">
+
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
 * Django - version 3.2.0
