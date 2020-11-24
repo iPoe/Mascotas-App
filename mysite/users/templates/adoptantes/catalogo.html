@@ -36,45 +36,6 @@
 				margin: 0;
 				margin-bottom: 10px;
 			}
-			div.gallery:hover {
-			  border: 1px solid #777;
-			}
-
-			div.gallery img {
-			  width: 100%;
-			  height: auto;
-			}
-
-			div.desc {
-			  padding: 15px;
-			  text-align: center;
-			}
-
-			.center {
-			  text-align: center;
-			}
-
-			.pagination {
-			  display: inline-block;
-			}
-
-			.pagination a {
-			  color: black;
-			  float: left;
-			  padding: 8px 16px;
-			  text-decoration: none;
-			  transition: background-color .3s;
-			  border: 1px solid #ddd;
-			  margin: 0 4px;
-			}
-
-			.pagination a.active {
-			  background-color: #4CAF50;
-			  color: white;
-			  border: 1px solid #4CAF50;
-			}
-
-			.pagination a:hover:not(.active) {background-color: #ddd;}
 			.container {
 				display: flex;
 			}
@@ -384,7 +345,7 @@
 						<img src="../../static/adoptantes/images/catalogo.jpg">
 					</div>
 					<div class="message">
-						<a href="{% url 'users:main' %}"class="user">Catálago</a>
+						<a class="user">Catálago</a>
 					</div>
 				</div>
 				<div class="messages">
@@ -392,9 +353,10 @@
 						<img src="../../static/adoptantes/images/Match.jpeg">
 					</div>
 					<div class="message">
-						<a href="{% url 'users:list_match' %}" class="user">Mis Match</a>
+						<a class="user">Mis Match</a>
 					</div>
 				</div>
+				
 				
 			</div>
 

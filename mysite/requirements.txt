@@ -1,0 +1,12 @@
+asgiref==3.2.10
+coverage==5.3
+-e git+https://github.com/django/django.git@01974d7f7549b2dca2a729c3c1a1ea7d4585eb3a#egg=Django
+gunicorn==20.0.4
+Pillow==8.0.1
+psycopg2==2.8.6
+PyMySQL==0.10.1
+pytz==2020.1
+selenium==3.141.0
+sqlparse==0.3.1
+urllib3==1.26.2
+whitenoise==5.2.0

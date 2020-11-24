@@ -152,7 +152,7 @@ class SeleccionarMascotaEliminar(ListView):
 		context = super().get_context_data(*args, **kwargs)
 		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
-	def get_query_set(self):		
+	def get_queryset(self):		
 		return Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
 
 
@@ -168,7 +168,7 @@ class SeleccionarMascota(ListView):
 		context = super().get_context_data(*args, **kwargs)
 		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		return context
-	def get_query_set(self):		
+	def get_queryset(self):		
 		return Mascota.objects.filter(idfundacion=Fundacion.objects.get(usuario=self.request.user))
 
 
@@ -235,6 +235,7 @@ class VerMultimedia(ListView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
+
 		context['info'] = Fundacion.objects.filter(usuario=self.request.user)
 		context['mascota'] = Mascota.objects.get(id=self.kwargs['pk'])
 		return context
