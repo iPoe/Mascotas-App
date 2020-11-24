@@ -14,7 +14,7 @@ from ..decorators import adop_required
 
 
 from ..forms import AdoptSignUpForm
-
+#Create password to easy message
 
 
 class AdoptSignUpView(CreateView):
