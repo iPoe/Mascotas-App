@@ -13,10 +13,8 @@
 
 ## Screenshots
 
-![reg-fund](./img/s1.png)
-![reg-adop](./img/s3.gif)
-<img src="./img/s1.png" width="100" height="100">
-<img src="./img/s3.gif" width="100" height="100">
+<img src="./img/s1.png" width="200" height="300">
+<img src="./img/s3.gif" width="200" height="300">
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
 * Django - version 3.2.0
