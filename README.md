@@ -12,11 +12,11 @@
 * [Contacto](#contact)
 
 ## Screenshots
-![reg|width=50px,height=50](./img/s1.png)
+
 ![reg-fund](./img/s1.png)
 ![reg-adop](./img/s3.gif)
-<img src="./img/s1.png" width="300">
-
+<img src="./img/s1.png" width="100" height="100">
+<img src="./img/s3.gif" width="100" height="100">
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
 * Django - version 3.2.0
