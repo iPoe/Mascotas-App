@@ -365,29 +365,9 @@
 			</div>
 
 			<div class="content">
-				
-				
-				<div class="card">
-					<div class="gallery">
-						{%include 'adoptantes/carousel.html'%}
-					</div>
-					<div class="center">
-         
-						<div class="pagination">
-				            {% if page_obj.has_previous %}
-				              <a href="?page={{ page_obj.previous_page_number}}">&laquo;</a>
-				            {% else %}
-				              <a href="#">&laquo;</a>
-				            {% endif %}
-
-				            {% if page_obj.has_next %}
-				              <a href="?page={{ page_obj.next_page_number}}">&raquo;</a>
-				            {% else %}
-				              <a href="#">&raquo;</a>
-				            {% endif %}
-				          </div>
-				       </div>
-				</div>
+				    <form action="" method="post" id="sampleForm"> {% csrf_token %}
+					    <input href="{% url 'users:main' %}" id="match" target="_blank" type="hidden" style="text-indent:-9999px"> 
+					 </form> 
 				
 			</div>
 		</div>
@@ -404,5 +384,10 @@
     <!-- jQuery UI !-->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+        document.getElementsByTagName("form")[0].submit();
+        }
+    </script>
 
 </html>
