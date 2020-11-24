@@ -17,6 +17,8 @@ urlpatterns = [
 
 	path('main/',adoptantes.Catalogo.as_view(),name="main"),
 	path('main/<int:pk>',adoptantes.CrearMatch.as_view(),name="match"),
+	path('match/',adoptantes.SeleccionarMatch.as_view(),name="list_match"),
+	path('match/<int:pk>',adoptantes.PerfilMascota.as_view(),name="perfil_mascota"),
 
 	path('agregar/', fundacion.AgregarMascota.as_view(),name="agregar"),
 	#path('editar/', fundacion.editar,name="editar"),

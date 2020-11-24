@@ -36,45 +36,6 @@
 				margin: 0;
 				margin-bottom: 10px;
 			}
-			div.gallery:hover {
-			  border: 1px solid #777;
-			}
-
-			div.gallery img {
-			  width: 100%;
-			  height: auto;
-			}
-
-			div.desc {
-			  padding: 15px;
-			  text-align: center;
-			}
-
-			.center {
-			  text-align: center;
-			}
-
-			.pagination {
-			  display: inline-block;
-			}
-
-			.pagination a {
-			  color: black;
-			  float: left;
-			  padding: 8px 16px;
-			  text-decoration: none;
-			  transition: background-color .3s;
-			  border: 1px solid #ddd;
-			  margin: 0 4px;
-			}
-
-			.pagination a.active {
-			  background-color: #4CAF50;
-			  color: white;
-			  border: 1px solid #4CAF50;
-			}
-
-			.pagination a:hover:not(.active) {background-color: #ddd;}
 			.container {
 				display: flex;
 			}
@@ -268,7 +229,51 @@
 			.content .buttons .heart:hover {
 				transform: scale(1.1);
 			}
+			div.gallery {
+			  margin: 5px;
+			  border: 1px solid #ccc;
+			  float: left;
+			  width: 300px;
+			}
 
+			div.gallery:hover {
+			  border: 1px solid #777;
+			}
+
+			div.gallery img {
+			  width: 300px;
+			  height: 300px;
+			}
+
+			div.desc {
+			  padding: 15px;
+			  text-align: center;
+			}
+
+			.center {
+			  text-align: center;
+			}
+
+			.pagination {
+			  display: inline-block;
+			}
+
+			.pagination a {
+			  color: black;
+			  float: left;
+			  padding: 8px 16px;
+			  text-decoration: none;
+			  transition: background-color .3s;
+			  border: 1px solid #ddd;
+			  margin: 0 4px;
+			}
+
+			.pagination a.active {
+			  background-color: #4CAF50;
+			  color: white;
+			  border: 1px solid #4CAF50;
+			}
+			.pagination a:hover:not(.active) {background-color: #ddd;}
         	footer {
             position: relative;/* Altura total del footer en px con valor negativo */
 			margin-top: -200px;/* Altura del footer en px. Se han restado los 5px del margen superior mas los 5px del margen inferior*/
@@ -400,29 +405,36 @@
 
 			<div class="content">
 				
-				
-				<div class="card">
-					<div class="gallery">
-						{%include 'adoptantes/carousel.html'%}
-					</div>
-					<div class="center">
-         
-						<div class="pagination">
-				            {% if page_obj.has_previous %}
-				              <a href="?page={{ page_obj.previous_page_number}}">&laquo;</a>
-				            {% else %}
-				              <a href="#">&laquo;</a>
-				            {% endif %}
+				<div class="w3-container">
+		            {% for n in mascotas %}
+		              <div class="gallery">
+		              <a target="_blank" href="{% url 'users:perfil_mascota' pk=n.pk %}">
+		                <img src="../media/{{ n.foto }}" alt="" width="100%">
+		              </a>
+		              <div class="desc">{{ n.Nombre }}</div>
+		            </div>
+		            {% endfor %}
+		          
+		        </div>
+				<div class="center">
+		          <div class="pagination">
+		            {% if page_obj.has_previous %}
+		              <a href="?page={{ page_obj.previous_page_number}}">&laquo;</a>
+		            {% else %}
+		              <a href="#">&laquo;</a>
+		            {% endif %}
 
-				            {% if page_obj.has_next %}
-				              <a href="?page={{ page_obj.next_page_number}}">&raquo;</a>
-				            {% else %}
-				              <a href="#">&raquo;</a>
-				            {% endif %}
-				          </div>
-				       </div>
-				</div>
-				
+		            {% for i in paginator.page_range %}
+		              <a href="?page={{i}}" class= "{% if page_obj.number == i %} active {% endif%}">{{i}}</a>
+		            {% endfor%}
+
+		            {% if page_obj.has_next %}
+		              <a href="?page={{ page_obj.next_page_number}}">&raquo;</a>
+		            {% else %}
+		              <a href="#">&raquo;</a>
+		            {% endif %}
+		          </div>
+		        </div>
 			</div>
 		</div>
 	</body>

@@ -93,7 +93,6 @@ class Catalogo(ListView):
         q2 = Match.objects.filter(Idusuario=self.request.user)
         for i in q2:
             q1 = q1.exclude(id=i.IdMascota.id)
-        print(q1)
         
         return q1
 
@@ -108,3 +107,39 @@ class CrearMatch(CreateView):
         return super().form_valid(form)
 
     success_url = reverse_lazy('users:main')
+
+class SeleccionarMatch(ListView):
+
+    model = Match
+    template_name = 'adoptantes/mis_match.html'
+    #queryset = Mascota.objects.filter(idfundacion="2")
+    context_object_name = 'mascotas'
+    paginate_by = 3
+
+    def get_queryset(self):
+        q1 = Mascota.objects.all()
+        q2 = Match.objects.filter(Idusuario=self.request.user)
+        for i in q2:
+            q1 = q1.exclude(id=i.IdMascota.id)
+        
+        q3 = Mascota.objects.all()
+        q1 = q3.difference(q1)
+        print(q1)
+        return q1
+
+class PerfilMascota(ListView):
+
+    model = Mascota
+    template_name = 'adoptantes/perfil.html'
+    #queryset = Mascota.objects.filter(idfundacion="2")
+    context_object_name = 'multimedia'
+    paginate_by = 3
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['info'] = Mascota.objects.filter(id=self.kwargs['pk'])
+        return context
+
+    def get_queryset(self):
+        return Contenido_Multi.objects.filter(id_mascota=self.kwargs['pk'])
+        

@@ -1,6 +1,12 @@
-{% extends 'fundacion/layout.html' %}
-{% load static %}
-{% block style %}
+<!DOCTYPE html>
+<html>
+{% load static %}   
+<title>Mascota</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .container {
@@ -82,26 +88,55 @@ div.desc {
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 </style>
-{% endblock %}
-{% block content %}
-    <!-- Columna Derecha -->
-    <div class="w3-twothird">
+<body class="w3-light-grey">
+
+<!-- Contenerdor Pagina -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- Grilla -->
+  <div class="w3-row-padding">
+  
+    <!-- Columna izquierda -->
+    <div class="w3-third">
+    	{% for n in info %}
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img id="currentPhoto" src="../media/{{ n.foto }}"  width="100%">
+        </div>
+        <div class="w3-container w3-text-black"> 
+				   <h3><strong>Nombre: </strong></h3><p> {{ n.Nombre }} </p>
+				  	<h3><strong>Descripcion: </strong></h3><p> {{ n.Descripcion }} </p>
+				  	<h3><strong>Tipo_Mascota: </strong></h3><p> {{ n.Tipo_Mascota }} </p>
+				  	<h3><strong>Edad: </strong></h3><p> {{ n.Edad }} </p>
+				  	<h3><strong>genero: </strong></h3><p> {{ n.genero }} </p>
+				  	<h3><strong>Estado_esterilzacion: </strong></h3><p> {{ n.Estado_esterilzacion }} </p>
+				  	<h3><strong>Estado_salud: </strong></h3><p> {{ n.Estado_salud }} </p>
+				  	<h3><strong>ciudad: </strong></h3><p> {{ n.ciudad }} </p>
+          		<hr>
+         {% endfor %}
+        </div>
+      </div><br>
+
+      <!-- Fin Columna izquierda -->
+      </div>
+      <!-- Columna Derecha -->
+		<div class="w3-twothird">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Seleccione Mascota para Eliminar</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Contenido Multimedia</h2>
         
         
         <div class="w3-container">
-          
-    		 {% for n in mascotas %}
+            {% for n in multimedia %}
               <div class="gallery">
-              <a target="_self" href="../eliminar/{{ n.id }}">
+              <a target="_self" href="../media/{{ n.foto }}">
                 <img src="../media/{{ n.foto }}" alt="" width="100%">
               </a>
-              <div class="desc">{{ n.Nombre }}</div>
+              <div class="desc">{{ n.titulo }}</div>
             </div>
             {% endfor %}
-      </div>
+          
+        </div>
         {% if messages %}
                 {% for message in messages %}
                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
@@ -110,7 +145,7 @@ div.desc {
                 </li>
                 {% endfor %}
             {% endif %}
-      <div class="center">
+        <div class="center">
           <div class="pagination">
             {% if page_obj.has_previous %}
               <a href="?page={{ page_obj.previous_page_number}}">&laquo;</a>
@@ -129,11 +164,15 @@ div.desc {
             {% endif %}
           </div>
         </div>
+      </div>
 
-    <!-- Fin Columna Derecha -->
+    <!--Fin Columna Derecha -->
     </div>
-{% endblock %}
+	  <!-- Fin Columna Derecha -->
+     <!-- Fin Grilla-->
+    </div>
+ <!-- Fin Contenedor Pagina-->
 
-
+</div>
 </body>
 </html>

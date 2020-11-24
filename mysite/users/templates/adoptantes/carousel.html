@@ -61,7 +61,7 @@ div.desc {
 <div class="w3-container">
             
             {% for n in mascotas %}
-              <a target="_self" href="{% url 'users:match' pk=n.pk%}">
+              <a target="_self" href="{% url 'users:match' pk=n.pk %}">
                 <img src="../media/{{ n.foto }}" alt="" width="100%">
               </a>
               <div class="desc">{{ n.Nombre }}</div>

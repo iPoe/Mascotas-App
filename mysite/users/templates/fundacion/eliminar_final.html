@@ -39,7 +39,7 @@ div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
-  width: 180px;
+  width: 300px;
 }
 
 div.gallery:hover {
@@ -47,12 +47,16 @@ div.gallery:hover {
 }
 
 div.gallery img {
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 300px;
 }
 
 div.desc {
   padding: 15px;
+  text-align: center;
+}
+
+.center {
   text-align: center;
 }
 </style>
@@ -65,10 +69,10 @@ div.desc {
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>¿Seguro Desea Eliminar Esta mascota?</h2>
         
         
-        <div class="w3-container">
+        <div class="w3-container center">
           
     		
-              <div class="w3-display-container">
+              <div class="w3-display-container gallery center">
                 <img id="currentPhoto" src="../media/{{ mascotas.foto }}"  width="100%">
                  <form  class="w3-container " method="POST" action=""> {% csrf_token %}
                   <input class="w3-button w3-red" type="submit" value="Eliminar">
