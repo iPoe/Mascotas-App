@@ -12,9 +12,9 @@
 * [Contacto](#contact)
 
 ## Screenshots
-![reg-fund](./img/s1.png)
-![reg-adop](./img/s3.gif)
-<img src="./img/s1.png" width="300">
+
+<img src="./img/s1.png" width="600" height="452">
+<img src="./img/s3.gif" width="600" height="452">
 
 ## Tecnologias
 Para este proyecto se usaron las siguientes tecnologias
