@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.db import transaction
 
-from users.models import usuarios,Fundacion,Mascota,Contenido_Multi
+from users.models import usuarios,Fundacion,Mascota,Contenido_Multi, Match
 
 class AdoptSignUpForm(UserCreationForm):
     correo = forms.EmailField(label="Correo electrónico")
@@ -79,3 +79,9 @@ class AgregarMultimedia(forms.ModelForm):
             'titulo': forms.TextInput(attrs={'class': 'w3-input w3-border w3-light-grey'}),
             'tipo_contenido': forms.Select(attrs={'class': 'w3-input w3-border w3-light-grey'}),
         }       
+
+class NuevoMatch(forms.ModelForm):
+    class Meta():
+        model = Match
+        exclude = ("Idusuario","IdMascota")
+  
