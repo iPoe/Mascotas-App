@@ -58,7 +58,7 @@ div.desc {
 .pagination a:hover:not(.active) {background-color: #ddd;}
 </style>
 </head>
-<div class="w3-container">
+<div class="w3-container"><h3>Click en la Imagen para hacer Match!</h3>
             
             {% for n in mascotas %}
               <a target="_self" href="{% url 'users:match' pk=n.pk %}">

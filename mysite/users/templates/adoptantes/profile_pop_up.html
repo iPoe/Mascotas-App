@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	.ventana{
+				background:rgba(204,204,204,1);
+				width: 20%;
+				color:#000101;
+				font-family: 'Roboto', sans-serif;
+				font-size: 18px;
+				padding: 33px;
+				min-height: 34px;
+				border-radius: 22px;
+				position: absolute;
+				left:20%;
+				top:10%;
+				display: none;
+			}
+	#Cerrar{
+				position: absolute;
+				right: 20px;
+				top:14px;
+			}
+</style>
+<head>	
+</head>
+
+<div class="ventana" id="vent">
+			<div id="Cerrar"><a href="javascript:cerrar()"> <img src="../../static/adoptantes/images/cancelar.png"></a></div>
+			<div>Mi nombre es:{{request.user.nombre}}</div>
+			<div>Mi correo es:{{request.user.correo}}</div>
+		</div>
+
+<div class="header">
+					<div class="avatar">
+						<img src="../../static/adoptantes/images/usuario.png"/>
+					</div>
+					<div><a href="javascript:abrir()">Mi perfil</a></div>
+				</div>
+
+<script>
+			function abrir(){
+				document.getElementById("vent").style.display="block";
+			}
+
+			function cerrar(){
+				document.getElementById("vent").style.display="none";
+			}
+</script>
+</html>
