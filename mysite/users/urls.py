@@ -12,7 +12,7 @@ urlpatterns = [
 	path('reg/', adoptantes.AdoptSignUpView.as_view(),name="registro"),
 	path('regf/',fundacion.FundtSignUpView.as_view(),name="registroFundacion"),
 	path('log/',adoptantes.loginPage,name="login"),
-	path('main2/',adoptantes.vista_main_2,name="main2"),
+	#path('main2/',adoptantes.vista_main_2,name="main2"),
 	path('l/',adoptantes.logoutUser,name="logout"),
 
 	path('main/',adoptantes.Catalogo.as_view(),name="main"),

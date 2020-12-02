@@ -84,25 +84,27 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dcclio3rhrbek1',
-        'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
-        'PORT':5432,
-        'USER':'aswnflhcsydsgn',
-        'PASSWORD':'d56358ce382bcc9c36ba957f248dd7694fdd9a961739f57104358fce098963ab'
+        'NAME': 'mascotas'
         
         
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dcclio3rhrbek1',
+#         'HOST': 'ec2-54-166-114-48.compute-1.amazonaws.com',
+#         'PORT':5432,
+#         'USER':'aswnflhcsydsgn',
+#         'PASSWORD':'d56358ce382bcc9c36ba957f248dd7694fdd9a961739f57104358fce098963ab'
+        
+        
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 

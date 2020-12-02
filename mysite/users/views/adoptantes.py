@@ -58,17 +58,6 @@ def logoutUser(request):
     return redirect('users:login')
 
 
-@login_required
-@adop_required
-def vista_main(request):
-    mascotas = Mascota.objects.all()
-    context = {'fotos_slide':mascotas}
-    ##What to do to capture the pet and added to likes
-    #when button is clicked
-    if request.method == 'POST':
-        print("Script Working....")
-
-    return render(request,'adoptantes/catalogo.html',context)
 
 
 def vista_main_2(request):
